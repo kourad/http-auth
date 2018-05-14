@@ -113,18 +113,14 @@ class Base extends events.EventEmitter {
             header = req.headers["authorization"];
         }
 
-        // esto es mas o menos lo que habria que hacer...
-        if( header === undefined )
-        {
+        // check if cors is enabled
+        if( this.options.cors && header === undefined ) {
             header = req.headers["access-control-request-headers"]
-            if( header !== undefined && header.includes("authorization") )
-            {
+            if( header !== undefined && header.includes("authorization") ) {
                 callback.apply(this, [{user:"cors", pass: "cors"}])
                 return;
             }
         }
-
-
 
 
         // Searching for user.
