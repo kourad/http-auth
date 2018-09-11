@@ -107,6 +107,22 @@ class Base extends events.EventEmitter {
     isAuthenticated(req, callback) {
         let self = this;
         let header = undefined;
+
+        // exclude routes
+        if( this.options.exclude )
+        {
+            let route = req.route.path;
+            if( this.options.exclude.includes( route ) )
+            {
+                console.log( 'Vamos gauay' )
+                callback.apply(this, [{user:"cors", pass: "cors"}])
+                return;
+            }
+        }
+
+
+
+
         if (this.proxy) {
             header = req.headers["proxy-authorization"];
         } else {
