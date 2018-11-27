@@ -1,7 +1,7 @@
 {
   "name": "http-auth-cors",
   "description": "Node.js package for HTTP basic and digest access authentication with CORS. Fork of Gevorg Harutyunyan (http://github.com/gevorg)",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "author": "Antonio Lopez Navarro",
   "maintainers": [
     {
